@@ -1,0 +1,15 @@
+<app-header
+    (showRecipiesEvent)="displayMainSections($event)">
+
+</app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <app-recipies  *ngIf="showRecipiesFlag"></app-recipies>
+      <app-shopping-list *ngIf="!showRecipiesFlag" ></app-shopping-list>
+    </div>
+  </div>
+</div>
+
+<!-- *ngIf="showRecipiesFlag" -->

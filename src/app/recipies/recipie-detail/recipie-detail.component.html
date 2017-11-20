@@ -1,0 +1,61 @@
+<div *ngIf="selectedRecipie; else norecipieSelectedText">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <img src="" alt="" class="img-responsive">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Recipie Name</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 ">
+      <button appDropdown
+              type="button"
+              class="btn btn-primary dropdown-toggle ">
+        Manage Recipie <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu ">
+        <li><a href="#" (click)="onAdditionToShoppingList(selectedRecipie.ingredients)">To Shopping List</a></li>
+        <li><a href="#">Edit Recipie</a></li>
+        <li><a href="#">Delete Recipie</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 panel">
+      {{selectedRecipie.name}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 panel">
+      {{selectedRecipie.description}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <li class="list-group-item"
+            *ngFor="let ingredient of selectedRecipie.ingredients">
+          {{ingredient.name}} - {{ingredient.amount}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <img src="{{selectedRecipie.imagePath}}" class="img-responsive img-rounded"/>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #norecipieSelectedText>
+  <p>Please select a recipie</p>
+</ng-template>
